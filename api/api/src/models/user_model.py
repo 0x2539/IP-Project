@@ -15,4 +15,4 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserModel
-        fields = ('first_name', 'last_name', 'email', 'fb_user_id')
+        fields = ('id', 'first_name', 'last_name', 'email', 'fb_user_id')

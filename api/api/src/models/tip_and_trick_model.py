@@ -16,4 +16,4 @@ class TipAndTrickSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TipAndTrickModel
-        fields = ('title', 'description', 'average_rating', 'date_created', 'date_modified')
+        fields = ('id', 'title', 'description', 'average_rating', 'date_created', 'date_modified')

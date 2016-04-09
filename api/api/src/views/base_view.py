@@ -27,7 +27,7 @@ class BaseView(View):
     def get_one_or_all(self, request, model, serializer, item_id=None, skip=[], only=[]):
 
         if item_id is None:
-            items = model.objects.all().values_list()
+            items = model.objects.all()
             items_dict = [serializer(item).data for item in items]
             # remove skipped columns
             if skip is not None and skip != []:

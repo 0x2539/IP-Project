@@ -15,4 +15,4 @@ class RatingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = RatingModel
-        fields = ('rating', 'date_modified')
+        fields = ('id', 'rating', 'date_modified', 'tip_and_trick', 'user')
