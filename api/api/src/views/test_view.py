@@ -13,9 +13,9 @@ class TestView(View):
 
     def get(self, request, question_id=None):
 
-        id = request.GET.get('id', 3)
+        # id = request.GET.get('id', 3)
 
-        question = Question.objects.get(pk=id)
+        question = Question.objects.get(pk=question_id)
         serializer = QuestionSerializer(question)
         response = {
             'some': 'value',
