@@ -40,6 +40,27 @@ schema_profile_post = {
     },
 }
 
+schema_tip_and_trick_post = {
+    'type': 'object',
+    'required': ['id', 'title', 'description'],
+    'additionalProperties': False,
+    'properties': {
+        'id': {'type': 'integer'},
+        'title': {'type': 'string'},
+        'description': {'type': 'string'},
+    },
+}
+
+schema_tip_and_trick_put = {
+    'type': 'object',
+    'required': ['title', 'description'],
+    'additionalProperties': False,
+    'properties': {
+        'title': {'type': 'string'},
+        'description': {'type': 'string'},
+    },
+}
+
 schema_question_post = {
     'type': 'object',
     'required': ['id', 'title', 'message'],
@@ -53,10 +74,9 @@ schema_question_post = {
 
 schema_question_put = {
     'type': 'object',
-    'required': ['id', 'title', 'message'],
+    'required': ['title', 'message'],
     'additionalProperties': False,
     'properties': {
-        'id': {'type': 'integer'},
         'title': {'type': 'string'},
         'message': {'type': 'string'},
     },
