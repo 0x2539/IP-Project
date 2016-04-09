@@ -1,13 +1,9 @@
 import httplib
-import json
 
-from api.src.models.question_model import QuestionModel, QuestionSerializer
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError
 from django.http import JsonResponse
 from django.views.generic import View
-
-from api.src.utils.utils import is_string_empty, get_now
 
 
 class BaseView(View):

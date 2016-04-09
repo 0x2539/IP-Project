@@ -16,8 +16,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from api.src.views import (
-    questions_view,
-    test_view,
     create_account_view,
     login_view,
     tip_and_trick_view,
@@ -30,6 +28,4 @@ urlpatterns = [
     url(r'^login', login_view.LoginView.as_view()),
     url(r'^tip-and-trick/?(?P<tip_and_trick_id>\w{1,50})?', tip_and_trick_view.TipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^category/?(?P<category_id>\w{1,50})?', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional
-    url(r'^questions', questions_view.QuestionsView.as_view()),
-    url(r'^test/(?P<question_id>\w{1,50})', test_view.TestView.as_view()),
 ]

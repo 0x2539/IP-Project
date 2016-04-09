@@ -1,10 +1,7 @@
-import httplib
-
 from api.src.models.category_model import CategoryModel, CategorySerializer
 from api.src.utils import schemas
 from api.src.utils.decorators import validate_request
 from api.src.views.base_view import BaseView
-from django.core.exceptions import ObjectDoesNotExist
 
 
 class CategoryView(BaseView):

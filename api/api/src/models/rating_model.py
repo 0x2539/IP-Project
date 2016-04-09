@@ -7,6 +7,7 @@ from django.db import models
 
 class RatingModel(BaseModel):
     rating = models.PositiveSmallIntegerField()
+    comment = models.TextField()
     tip_and_trick = models.ForeignKey(TipAndTrickModel)
     user = models.ForeignKey(UserModel)
 
@@ -15,4 +16,4 @@ class RatingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = RatingModel
-        fields = ('id', 'rating', 'date_modified', 'tip_and_trick', 'user')
+        fields = ('id', 'rating', 'comment', 'tip_and_trick', 'user', 'date_modified')
