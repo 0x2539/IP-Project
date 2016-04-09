@@ -22,6 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'pyr1a&uft5aj#8uc+hy8j0#c%4e4&!kwl2-oh*e+5&wggfs82r'
 
+# JWT Api Key - used for creating the user authorization token
+JWT_API_KEY = 'pyr1a&uft5aj#8uc+hy8j0#c%4e4&!kwl2-oh*e+5&wggfs82r'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
