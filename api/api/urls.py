@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from api.src.views import questions_view, test_view
+from api.src.views import questions_view, test_view, create_account_view, login_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^create-account', create_account_view.CreateAccountView.as_view()),
+    url(r'^login', login_view.LoginView.as_view()),
     url(r'^questions', questions_view.QuestionsView.as_view()),
     url(r'^test/(?P<question_id>\w{1,50})', test_view.TestView.as_view()),
 ]

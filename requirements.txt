@@ -1,4 +1,7 @@
+bcrypt
 Django
 djangorestframework
+enum34
 jsonschema
+passlib
 PyJWT
