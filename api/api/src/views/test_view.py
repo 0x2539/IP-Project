@@ -1,8 +1,7 @@
 import httplib
 import json
 
-from api.src.models import Question
-from api.src.serializers import QuestionSerializer
+from api.src.models.question_model import QuestionModel, QuestionSerializer
 from django.http import JsonResponse
 from django.views.generic import View
 
@@ -15,7 +14,7 @@ class TestView(View):
 
         # id = request.GET.get('id', 3)
 
-        question = Question.objects.get(pk=question_id)
+        question = QuestionModel.objects.get(pk=question_id)
         serializer = QuestionSerializer(question)
         response = {
             'some': 'value',
@@ -35,7 +34,7 @@ class TestView(View):
         if is_string_empty(title) or is_string_empty(message):
             return JsonResponse({'error': 'json is incomplete'}, status=httplib.BAD_REQUEST)
 
-        question = Question(title=title, message=message)
+        question = QuestionModel(title=title, message=message)
         question.save()
 
         response = {
