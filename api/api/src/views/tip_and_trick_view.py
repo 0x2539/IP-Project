@@ -8,6 +8,7 @@ class TipAndTrickView(BaseView):
 
     @validate_request()
     def get(self, request, tip_and_trick_id=None):
+        print 'the tip', tip_and_trick_id
         return self.get_one_or_all(request, TipAndTrickModel, TipAndTrickSerializer,  tip_and_trick_id)
 
     @validate_request(schema=schemas.schema_tip_and_trick_post)

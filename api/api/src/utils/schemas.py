@@ -66,24 +66,24 @@ schema_tip_and_trick_put = {
 
 schema_tip_and_trick_rating_post = {
     'type': 'object',
-    'required': ['id', 'title', 'description', 'category_id'],
+    'required': ['id', 'rating', 'comment', 'tip_and_trick_id'],
     'additionalProperties': False,
     'properties': {
         'id': {'type': 'integer'},
-        'title': {'type': 'string'},
-        'description': {'type': 'string'},
-        'category_id': {'type': 'integer'},
+        'rating': {'type': 'integer'},
+        'comment': {'type': 'string'},
+        'tip_and_trick_id': {'type': 'integer'},
     },
 }
 
 schema_tip_and_trick_rating_put = {
     'type': 'object',
-    'required': ['title', 'description', 'category_id'],
+    'required': ['rating', 'comment', 'tip_and_trick_id'],
     'additionalProperties': False,
     'properties': {
-        'title': {'type': 'string'},
-        'description': {'type': 'string'},
-        'category_id': {'type': 'integer'},
+        'rating': {'type': 'integer'},
+        'comment': {'type': 'string'},
+        'tip_and_trick_id': {'type': 'integer'},
     },
 }
 
@@ -105,26 +105,5 @@ schema_category_put = {
     'properties': {
         'title': {'type': 'string'},
         'description': {'type': 'string'},
-    },
-}
-
-schema_question_post = {
-    'type': 'object',
-    'required': ['id', 'title', 'message'],
-    'additionalProperties': False,
-    'properties': {
-        'id': {'type': 'integer'},
-        'title': {'type': 'string'},
-        'message': {'type': 'string'},
-    },
-}
-
-schema_question_put = {
-    'type': 'object',
-    'required': ['title', 'message'],
-    'additionalProperties': False,
-    'properties': {
-        'title': {'type': 'string'},
-        'message': {'type': 'string'},
     },
 }

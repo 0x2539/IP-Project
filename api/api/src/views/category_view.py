@@ -10,10 +10,10 @@ class CategoryView(BaseView):
     def get(self, request, category_id=None):
         return self.get_one_or_all(request, CategoryModel, CategorySerializer,  category_id)
 
-    @validate_request(schema=schemas.schema_tip_and_trick_post)
+    @validate_request(schema=schemas.schema_category_post)
     def post(self, request, received_json, category_id=None):
         return self.post_one(request, received_json, CategoryModel)
 
-    @validate_request(schema=schemas.schema_tip_and_trick_put)
+    @validate_request(schema=schemas.schema_category_put)
     def put(self, request, received_json, category_id=None):
         return self.put_one(request, received_json, CategoryModel)

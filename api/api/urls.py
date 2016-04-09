@@ -19,7 +19,9 @@ from api.src.views import (
     create_account_view,
     login_view,
     tip_and_trick_view,
-    tip_and_trick_rating_view,
+    rating_tip_and_trick_view,
+    rating_user_view,
+    rating_apply_view,
     category_view,
 )
 
@@ -27,7 +29,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^create-account', create_account_view.CreateAccountView.as_view()),
     url(r'^login', login_view.LoginView.as_view()),
-    url(r'^tip-and-trick/?(?P<tip_and_trick_id>\w{1,50})?', tip_and_trick_view.TipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
-    url(r'^tip-and-trick-rating/(?P<tip_and_trick_id>\w{1,50})/?(?P<rating_id>\w{1,50})?', tip_and_trick_rating_view.TipAndTrickRatingView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^category/?(?P<category_id>\w{1,50})?', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^tip_and_trick/(?P<tip_and_trick_id>\d+)', tip_and_trick_view.TipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^tip_and_trick', tip_and_trick_view.TipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^rating/tip_and_trick/(?P<tip_and_trick_id>\d+)', rating_tip_and_trick_view.RatingTipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^rating/tip_and_trick', rating_tip_and_trick_view.RatingTipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^rating/user/(?P<user_id>\d+)', rating_user_view.RatingUserView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^rating/user', rating_user_view.RatingUserView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^rating_apply/(?P<rating_id>\d+)', rating_apply_view.RatingApplyView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^rating_apply', rating_apply_view.RatingApplyView.as_view()),  # [0-9]+$ '?' is for optional
 ]

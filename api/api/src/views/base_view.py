@@ -32,10 +32,13 @@ class BaseView(View):
     class Meta:
         abstract = True  # Set this class as Abstract
 
-    def get_one_or_all(self, request, model, serializer, item_id=None, skip=[], only=[]):
+    def get_one_or_all(self, request, model, serializer, item_id=None, skip=[], only=[], filters={}):
 
         if item_id is None:
-            items = model.objects.all()
+            if filters is not None:
+                items = model.objects.filter(**filters)
+            else:
+                items = model.objects.all()
             items_dict = [serializer(item).data for item in items]
             # remove skipped columns
             if skip is not None and skip != []:
