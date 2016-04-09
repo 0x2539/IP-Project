@@ -63,6 +63,30 @@ schema_tip_and_trick_put = {
     },
 }
 
+
+schema_tip_and_trick_rating_post = {
+    'type': 'object',
+    'required': ['id', 'title', 'description', 'category_id'],
+    'additionalProperties': False,
+    'properties': {
+        'id': {'type': 'integer'},
+        'title': {'type': 'string'},
+        'description': {'type': 'string'},
+        'category_id': {'type': 'integer'},
+    },
+}
+
+schema_tip_and_trick_rating_put = {
+    'type': 'object',
+    'required': ['title', 'description', 'category_id'],
+    'additionalProperties': False,
+    'properties': {
+        'title': {'type': 'string'},
+        'description': {'type': 'string'},
+        'category_id': {'type': 'integer'},
+    },
+}
+
 schema_category_post = {
     'type': 'object',
     'required': ['id', 'title', 'description'],

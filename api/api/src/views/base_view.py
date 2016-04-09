@@ -12,9 +12,21 @@ class BaseView(View):
         return JsonResponse(body, status=http_code, safe=False)
 
     def send_success(self, body, http_code=httplib.OK):
+        """
+
+        :param body: should be a dict
+        :param http_code: use httplib for codes
+        :return:
+        """
         return self.__send(body, http_code)
 
     def send_failed(self, error_message, http_code=httplib.BAD_REQUEST):
+        """
+
+        :param error_message: should be a string, like "PASSWORD_INCORRECT"
+        :param http_code: use httplib for codes
+        :return:
+        """
         return self.__send({'error': error_message}, http_code)
 
     class Meta:

@@ -5,13 +5,6 @@ import jsonschema
 from api.src.utils import login_utils
 
 
-def check_json_has_paramters(json, parameters):
-    for parameter in parameters:
-        if json.get(parameter) is None:
-            return False
-    return True
-
-
 def validate_request(schema=None, schema_attribute=None, user_required=False):
     """
       Decorator needed for parameter.
@@ -30,8 +23,8 @@ def validate_request(schema=None, schema_attribute=None, user_required=False):
             if request is None:
                 return self.send_failed('request is missing')
 
+            # validating json
             schema_name = getattr(self, schema_attribute) if schema_attribute is not None else schema
-
             if schema_name is not None:
                 json_body, code = check_json(schema_name, request)
                 if code is not httplib.OK:
@@ -39,6 +32,7 @@ def validate_request(schema=None, schema_attribute=None, user_required=False):
 
                 kwargs['received_json'] = json_body
 
+            # logging in user
             if user_required is True:
 
                 authorization_header = request.META.get('Authorization')
@@ -92,3 +86,10 @@ def check_user_required(authorization_header):
 
     token_payload = token_data_response.get('token_data')
     return token_payload
+
+
+def check_json_has_paramters(json, parameters):
+    for parameter in parameters:
+        if json.get(parameter) is None:
+            return False
+    return True
