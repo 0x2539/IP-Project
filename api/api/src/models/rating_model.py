@@ -8,8 +8,11 @@ from django.db import models
 class RatingModel(BaseModel):
     rating = models.PositiveSmallIntegerField()
     comment = models.TextField()
-    tip_and_trick = models.ForeignKey(TipAndTrickModel)
-    user = models.ForeignKey(UserModel)
+    tip_and_trick = models.ForeignKey(TipAndTrickModel, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('tip_and_trick', 'user',)
 
 
 class RatingSerializer(serializers.ModelSerializer):

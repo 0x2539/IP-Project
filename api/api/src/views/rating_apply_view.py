@@ -12,11 +12,11 @@ class RatingApplyView(BaseView):
         return self.get_one_or_all(request, RatingModel, RatingSerializer, rating_id)
 
     @validate_request(schema=schemas.schema_tip_and_trick_rating_post, user_required=UserTypeEnum.NORMAL)
-    def post(self, request, received_json, user_id, token_payload, rating_id=None):
+    def post(self, request, received_json, user_id, token_payload):
         received_json['user_id'] = 1
         return self.post_one(request, received_json, RatingModel)
 
-    @validate_request(schema=schemas.schema_tip_and_trick_rating_put)
-    def put(self, request, received_json, user_id, token_payload, rating_id=None, user_required=UserTypeEnum.NORMAL):
+    @validate_request(schema=schemas.schema_tip_and_trick_rating_put, user_required=UserTypeEnum.NORMAL)
+    def put(self, request, received_json, user_id, token_payload):
         received_json['user_id'] = 1
         return self.put_one(request, received_json, RatingModel)

@@ -9,7 +9,7 @@ class TipAndTrickModel(BaseModel):
     title = models.CharField(max_length=255)
     description = models.TextField()
     average_rating = models.FloatField(default=RatingEnum.UNAVAILABLE.value)
-    category = models.ForeignKey(CategoryModel)
+    category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE)
 
 
 class TipAndTrickSerializer(serializers.ModelSerializer):
