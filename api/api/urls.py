@@ -18,6 +18,7 @@ from django.contrib import admin
 from api.src.views import (
     create_account_view,
     login_view,
+    facebook_login_view,
     profile_view,
     tip_and_trick_view,
     rating_tip_and_trick_view,
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^create-account', create_account_view.CreateAccountView.as_view()),
     url(r'^login', login_view.LoginView.as_view()),
+    url(r'^facebook_login', facebook_login_view.FacebookLoginView.as_view()),
     url(r'^profile', profile_view.ProfileView.as_view()),
     url(r'^category/?(?P<category_id>\w{1,50})?', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^tip_and_trick/(?P<tip_and_trick_id>\d+)', tip_and_trick_view.TipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional

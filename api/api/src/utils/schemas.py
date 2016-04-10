@@ -27,6 +27,16 @@ schema_login_post = {
     },
 }
 
+schema_facebook_login_post = {
+    'type': 'object',
+    'required': ['access_token', 'provider_user_id'],
+    'additionalProperties': False,
+    'properties': {
+        'access_token': {'type': 'string'},
+        'provider_user_id': {'type': 'string'},
+    },
+}
+
 schema_profile_post = {
     'type': 'object',
     'additionalProperties': False,
