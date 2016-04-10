@@ -33,6 +33,7 @@ schema_profile_post = {
     'properties': {
         'first_name': {'type': 'string'},
         'last_name': {'type': 'string'},
+        'user_type': {'type': 'integer'},
         'email': {
             'type': 'string',
             'pattern': '[^@]+@[^@]+\.[^@]+'

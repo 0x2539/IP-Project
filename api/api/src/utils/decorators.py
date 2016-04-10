@@ -5,7 +5,7 @@ import jsonschema
 from api.src.utils import login_utils
 
 
-def validate_request(schema=None, schema_attribute=None, user_required=False):
+def validate_request(schema=None, schema_attribute=None, user_required=None):
     """
       Decorator needed for parameter.
     """
@@ -33,15 +33,16 @@ def validate_request(schema=None, schema_attribute=None, user_required=False):
                 kwargs['received_json'] = json_body
 
             # logging in user
-            if user_required is True:
+            if user_required is not None:
 
-                authorization_header = request.META.get('Authorization')
+                authorization_header = request.META.get('HTTP_AUTHORIZATION')
                 if authorization_header is None:
-                    return self.send_failed('Authorization header is missing', httplib.UNAUTHORIZED)
+                    return self.send_failed('AUTHORIZATION_HEADER_MISSING', httplib.UNAUTHORIZED)
 
-                token_payload = check_user_required(authorization_header)
-                if token_payload is not None:
-                    return self.send_failed('LOGIN_INVALID', httplib.UNAUTHORIZED)
+                try:
+                    token_payload = check_user_required(authorization_header, user_required)
+                except Exception as e:
+                    return self.send_failed(e.message, httplib.UNAUTHORIZED)
 
                 kwargs['token_payload'] = token_payload
                 kwargs['user_id'] = int(token_payload['id'])
@@ -78,13 +79,18 @@ def check_json(schema, request):
         return error_message, http_code
 
 
-def check_user_required(authorization_header):
+def check_user_required(authorization_header, user_required):
     token_data_response = login_utils.get_token_data(authorization_header)
 
     if not token_data_response.get('success'):
-        return None
+        raise Exception('TOKEN_IS_INVALID')
 
     token_payload = token_data_response.get('token_data')
+
+    user_type = token_payload.get('user_type')
+    if user_type < user_required.value:
+        raise Exception('NOT_ENOUGH_PERMISSIONS %s:%s' % (user_type, user_required.value))
+
     return token_payload
 
 

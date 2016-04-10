@@ -10,7 +10,7 @@ from api.src.utils.utils import get_now
 
 def create_login_data(user):
 
-    token = generate_login_token(user.id)
+    token = generate_login_token(user)
     login_data = {
         'token': token,
         'fb_user_id': user.fb_user_id,
@@ -45,7 +45,7 @@ def get_token_data(authorization_header):
     }
 
 
-def generate_login_token(user_id):
+def generate_login_token(user):
     """
         Generates a JWT token containing provider information.
     :param user_id:
@@ -53,7 +53,8 @@ def generate_login_token(user_id):
     """
     expiry = get_now() + settings.JWT_EXPIRY_DAYS * 1000 * 60 * 60 * 24
     payload = {
-        'id': user_id,
+        'id': user.id,
+        'user_type': user.user_type,
         'exp': expiry,
     }
     encoded = jwt.encode(payload, settings.JWT_API_KEY, algorithm='HS256')
