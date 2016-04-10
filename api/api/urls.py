@@ -25,6 +25,7 @@ from api.src.views import (
     rating_user_view,
     rating_apply_view,
     category_view,
+    users_view,
 )
 
 urlpatterns = [
@@ -33,7 +34,10 @@ urlpatterns = [
     url(r'^login', login_view.LoginView.as_view()),
     url(r'^facebook_login', facebook_login_view.FacebookLoginView.as_view()),
     url(r'^profile', profile_view.ProfileView.as_view()),
-    url(r'^category/?(?P<category_id>\w{1,50})?', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^users/(?P<id>\d+)?', users_view.UsersView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^users', users_view.UsersView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^category/(?P<category_id>\d+)?', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^category', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^tip_and_trick/(?P<tip_and_trick_id>\d+)', tip_and_trick_view.TipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^tip_and_trick', tip_and_trick_view.TipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^rating/tip_and_trick/(?P<tip_and_trick_id>\d+)', rating_tip_and_trick_view.RatingTipAndTrickView.as_view()),  # [0-9]+$ '?' is for optional

@@ -51,6 +51,40 @@ schema_profile_post = {
     },
 }
 
+schema_users_post = {
+    'type': 'object',
+    'required': ['id'],
+    'additionalProperties': False,
+    'properties': {
+        'id': {'type': 'integer'},
+        'first_name': {'type': 'string'},
+        'last_name': {'type': 'string'},
+        'user_type': {'type': 'integer'},
+        'password': {'type': 'string'},
+        'fb_user_id': {'type': 'string'},
+        'email': {
+            'type': 'string',
+            'pattern': '[^@]+@[^@]+\.[^@]+'
+        },
+    },
+}
+
+schema_users_put = {
+    'type': 'object',
+    'additionalProperties': False,
+    'properties': {
+        'first_name': {'type': 'string'},
+        'last_name': {'type': 'string'},
+        'user_type': {'type': 'integer'},
+        'password': {'type': 'string'},
+        'fb_user_id': {'type': 'string'},
+        'email': {
+            'type': 'string',
+            'pattern': '[^@]+@[^@]+\.[^@]+'
+        },
+    },
+}
+
 schema_tip_and_trick_post = {
     'type': 'object',
     'required': ['id', 'title', 'description', 'category_id'],

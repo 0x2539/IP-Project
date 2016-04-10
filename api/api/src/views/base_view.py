@@ -91,9 +91,8 @@ class BaseView(View):
 
         try:
             item = model(**values)
+            item.save()
         except IntegrityError as e:
             return self.send_failed('item already exists', httplib.BAD_REQUEST)
-
-        item.save()
 
         return self.send_success({}, httplib.OK)
