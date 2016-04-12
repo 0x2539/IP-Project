@@ -9,13 +9,16 @@ class TipAndTrickView(BaseView):
 
     @validate_request()
     def get(self, request, tip_and_trick_id=None):
-        print 'the tip', tip_and_trick_id
         return self.get_one_or_all(request, TipAndTrickModel, TipAndTrickSerializer,  tip_and_trick_id)
 
     @validate_request(schema=schemas.schema_tip_and_trick_post, user_required=UserTypeEnum.NORMAL)
-    def post(self, request, received_json, user_id, token_payload, tip_and_trick_id=None):
+    def post(self, request, received_json, user_id, token_payload):
         return self.post_one(request, received_json, TipAndTrickModel)
 
     @validate_request(schema=schemas.schema_tip_and_trick_put, user_required=UserTypeEnum.NORMAL)
-    def put(self, request, received_json, user_id, token_payload, tip_and_trick_id=None):
+    def put(self, request, received_json, user_id, token_payload):
         return self.put_one(request, received_json, TipAndTrickModel)
+
+    @validate_request(schema=schemas.schema_tip_and_trick_delete, user_required=UserTypeEnum.NORMAL)
+    def delete(self, request, received_json, user_id, token_payload, tip_and_trick_id):
+        return self.delete_one(request, received_json, TipAndTrickModel, tip_and_trick_id)

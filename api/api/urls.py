@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^login', login_view.LoginView.as_view()),
     url(r'^facebook_login', facebook_login_view.FacebookLoginView.as_view()),
     url(r'^profile', profile_view.ProfileView.as_view()),
-    url(r'^users/(?P<id>\d+)?', users_view.UsersView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^users/(?P<item_id>\d+)?', users_view.UsersView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^users', users_view.UsersView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^category/(?P<category_id>\d+)?', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^category', category_view.CategoryView.as_view()),  # [0-9]+$ '?' is for optional

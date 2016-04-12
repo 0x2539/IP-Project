@@ -12,9 +12,13 @@ class CategoryView(BaseView):
         return self.get_one_or_all(request, CategoryModel, CategorySerializer,  category_id)
 
     @validate_request(schema=schemas.schema_category_post, user_required=UserTypeEnum.ADMIN)
-    def post(self, request, received_json, user_id, token_payload, category_id=None):
+    def post(self, request, received_json, user_id, token_payload):
         return self.post_one(request, received_json, CategoryModel)
 
     @validate_request(schema=schemas.schema_category_put, user_required=UserTypeEnum.ADMIN)
-    def put(self, request, received_json, user_id, token_payload, category_id=None):
+    def put(self, request, received_json, user_id, token_payload):
         return self.put_one(request, received_json, CategoryModel)
+
+    @validate_request(schema=schemas.schema_category_delete, user_required=UserTypeEnum.ADMIN)
+    def delete(self, request, received_json, user_id, token_payload, category_id):
+        return self.delete_one(request, received_json, CategoryModel, category_id)

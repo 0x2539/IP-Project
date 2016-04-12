@@ -96,3 +96,14 @@ class BaseView(View):
             return self.send_failed('item already exists', httplib.BAD_REQUEST)
 
         return self.send_success({}, httplib.OK)
+
+    def delete_one(self, request, received_json, model, item_id):
+
+        try:
+            item = model.objects.get(pk=item_id)
+        except ObjectDoesNotExist as e:
+            return self.send_failed('item not found', httplib.BAD_REQUEST)
+
+        item.delete()
+
+        return self.send_success({}, httplib.OK)

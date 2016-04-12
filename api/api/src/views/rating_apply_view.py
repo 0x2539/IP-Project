@@ -20,3 +20,7 @@ class RatingApplyView(BaseView):
     def put(self, request, received_json, user_id, token_payload):
         received_json['user_id'] = 1
         return self.put_one(request, received_json, RatingModel)
+
+    @validate_request(schema=schemas.schema_tip_and_trick_rating_delete, user_required=UserTypeEnum.NORMAL)
+    def delete(self, request, received_json, user_id, token_payload, rating_id):
+        return self.delete_one(request, received_json, RatingModel, rating_id)

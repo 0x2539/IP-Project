@@ -85,6 +85,13 @@ schema_users_put = {
     },
 }
 
+schema_users_delete = {
+    'type': 'object',
+    'additionalProperties': False,
+    'properties': {
+    },
+}
+
 schema_tip_and_trick_post = {
     'type': 'object',
     'required': ['id', 'title', 'description', 'category_id'],
@@ -105,6 +112,13 @@ schema_tip_and_trick_put = {
         'title': {'type': 'string'},
         'description': {'type': 'string'},
         'category_id': {'type': 'integer'},
+    },
+}
+
+schema_tip_and_trick_delete = {
+    'type': 'object',
+    'additionalProperties': False,
+    'properties': {
     },
 }
 
@@ -132,6 +146,13 @@ schema_tip_and_trick_rating_put = {
     },
 }
 
+schema_tip_and_trick_rating_delete = {
+    'type': 'object',
+    'additionalProperties': False,
+    'properties': {
+    },
+}
+
 schema_category_post = {
     'type': 'object',
     'required': ['id', 'title', 'description'],
@@ -150,5 +171,12 @@ schema_category_put = {
     'properties': {
         'title': {'type': 'string'},
         'description': {'type': 'string'},
+    },
+}
+
+schema_category_delete = {
+    'type': 'object',
+    'additionalProperties': False,
+    'properties': {
     },
 }
