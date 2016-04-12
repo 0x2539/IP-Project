@@ -26,7 +26,8 @@
 				"6f45c631-adaa-5192-2883-50bbdd7ffcc7",
 				"5d713408-a525-2236-a4a3-59730eb5e862",
 				"c253678e-887a-1ce9-47aa-4f0005b7945e",
-				"39973939-3c56-80b2-0915-c86e35c3a2ee"
+				"39973939-3c56-80b2-0915-c86e35c3a2ee",
+				"30554644-d684-580c-582c-0321767084fc"
 			],
 			"owner": "403689"
 		},
@@ -38,7 +39,8 @@
 				"ed1f7a70-7d5c-2737-061f-261c09b7411e",
 				"569b98ab-734d-c316-f72c-7293b12abb91",
 				"f615a450-be13-0b5e-caaf-f4529efe085b",
-				"521f0507-299a-fd8e-d275-b207a2e8a0aa"
+				"521f0507-299a-fd8e-d275-b207a2e8a0aa",
+				"d72320a9-79ce-b380-4282-513eeef06179"
 			],
 			"owner": "403689",
 			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8"
@@ -55,7 +57,8 @@
 				"8538c18b-5060-fe7f-2aae-30c8b1aefa2f",
 				"45448412-beca-5b21-62ab-408c1f4d92d8",
 				"1a59cf66-0913-5139-7efd-d50e82f3f107",
-				"705dd01b-ec83-ab8a-b25d-4127d9d4a304"
+				"705dd01b-ec83-ab8a-b25d-4127d9d4a304",
+				"752dbf63-6ec6-f1bb-1ed3-332bc6f58959"
 			],
 			"owner": "403689",
 			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8"
@@ -68,7 +71,8 @@
 				"70d640e7-2c4d-28f1-89be-2ee77727e9a9",
 				"b84bc4e0-0af3-5c94-429b-1a12320fa39e",
 				"3205fd0a-840e-d7a1-d182-cd2ef767b0b4",
-				"f0e131bb-c29f-2800-658b-aebb52498170"
+				"f0e131bb-c29f-2800-658b-aebb52498170",
+				"7db5b1ca-c361-aa97-cca2-688adf98c012"
 			],
 			"owner": "403689",
 			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8"
@@ -97,6 +101,25 @@
 			"description": "",
 			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8",
 			"responses": []
+		},
+		{
+			"id": "30554644-d684-580c-582c-0321767084fc",
+			"headers": "Authorization: {{authorization}}\nContent-Type: application/json\n",
+			"url": "{{url}}/users/0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460439037167,
+			"name": "users",
+			"description": "",
+			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8",
+			"responses": [],
+			"rawModeData": "{ }"
 		},
 		{
 			"id": "3205fd0a-840e-d7a1-d182-cd2ef767b0b4",
@@ -312,6 +335,25 @@
 			"responses": []
 		},
 		{
+			"id": "752dbf63-6ec6-f1bb-1ed3-332bc6f58959",
+			"headers": "",
+			"url": "{{url}}/rating_apply/0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460439117370,
+			"name": "rating one",
+			"description": "",
+			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8",
+			"responses": []
+		},
+		{
 			"id": "7bc6876b-9407-aa43-a383-43210b2a5a84",
 			"headers": "Authorization: {{authorization}}\n",
 			"url": "{{url}}/profile",
@@ -328,6 +370,26 @@
 			"description": "",
 			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8",
 			"responses": []
+		},
+		{
+			"id": "7db5b1ca-c361-aa97-cca2-688adf98c012",
+			"headers": "Content-Type: application/json\nAuthorization: {{authorization}}\n",
+			"url": "{{url}}/tip_and_trick/0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460439080742,
+			"name": "tip and trick",
+			"description": "",
+			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8",
+			"responses": [],
+			"rawModeData": "{ }"
 		},
 		{
 			"id": "8538c18b-5060-fe7f-2aae-30c8b1aefa2f",
@@ -485,6 +547,26 @@
 			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8",
 			"responses": [],
 			"rawModeData": "{\n    \"email\": \"a@aa.com\",\n    \"password\": \"pass\"\n}"
+		},
+		{
+			"id": "d72320a9-79ce-b380-4282-513eeef06179",
+			"headers": "Content-Type: application/json\nAuthorization: {{authorization}}\n",
+			"url": "{{url}}/category/0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460439022343,
+			"name": "category",
+			"description": "",
+			"collectionId": "a291bbc9-d317-318b-85cd-99b73b719ad8",
+			"responses": [],
+			"rawModeData": "{ }"
 		},
 		{
 			"id": "dd5ae9ec-484d-5f71-fc72-bf3d1fa9053b",
