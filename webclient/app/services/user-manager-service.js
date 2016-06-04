@@ -8,7 +8,7 @@
                 data: user,
                 unauthenticated: true
             }).then(function success(response) {
-                $cookies.put(constants.cookie_key, response.data)
+                $cookies.put(constants.cookie_key, response.data.token)
             }, function error(response) {
                 alert(response.data)
             });
