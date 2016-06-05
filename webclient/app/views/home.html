@@ -1,19 +1,24 @@
+<div class="alert alert-success" ng-if="vm.showAlert">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{vm.alertMessage}}
+</div>
+
 <form class="form-horizontal" role="form" name="addTipForm">
     <div class="col-md-12">
-        <textarea class="form-control" rows="4" placeholder="Add a tip&trick...?" ng-model="vm.tipToAdd.text" required></textarea>
+        <input type="text" class="form-control col-md-12" placeholder="Ttitle..." ng-model="vm.tipToAdd.title" required>
+    </div>
+    <div class="col-md-12" style="margin-top:15px"></div>
+    <div class="col-md-12">
+        <textarea class="form-control" rows="4" placeholder="Description..." ng-model="vm.tipToAdd.description" required></textarea>
     </div>
     <div class="col-md-12" style="margin-top:15px">
     </div>
     <div class="col-md-9">
-        <select class="form-control" ng-model="vm.tipToAdd.category" required>
-            <option value="" selected disabled>Select a category:</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
+        <select class="form-control" ng-model="vm.tipToAdd.category_id" required convert-to-number>
+            <option value="" disabled selected>Please select a category</option>
+            <option ng-repeat="category in vm.categories" value="{{category.id}}">{{category.title}}</option>
         </select>
     </div>
     <div class="col-md-3">
-        <button type="submit" ng-disabled="addTipForm.$invalid" class="btn btn-primary pull-right">Add Tip&Trick</button>
+        <button type="submit" ng-disabled="addTipForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.addTip()">Add Tip&Trick</button>
     </div>
 </form>

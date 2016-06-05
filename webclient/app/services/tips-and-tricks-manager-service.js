@@ -1,0 +1,26 @@
+(function() {
+
+    function tipsAndTricksManager($http, $q, constants) {
+        var add = function(tip) {
+            var deferred = $q.defer();
+            $http({
+                method: 'PUT',
+                url: constants.baseUrl + "tip_and_trick",
+                data: tip,
+                unauthenticated: false,
+            }).then(function success(response) {
+                deferred.resolve();
+            }, function error(response) {
+                deferred.reject("Tip add failed");
+            });
+            return deferred.promise;
+        }
+        return {
+            add: add
+        };
+    }
+
+    angular.module("mainApp")
+        .factory("tipsAndTricksManager", ['$http', '$q', 'constants', tipsAndTricksManager]);
+
+})();

@@ -10,6 +10,7 @@
                 unauthenticated: true
             }).then(function success(response) {
                 $cookies.put(constants.cookie_key, response.data.token);
+                $cookies.put(constants.user_email, user.email);
                 deferred.resolve();
             }, function error(response) {
                 deferred.reject("Login failed");

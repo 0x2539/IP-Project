@@ -5,8 +5,8 @@
                 return config;
 
 
-            if (typeof $cookies.getObject(constants.cookie_key) !== 'undefined') {
-                config.headers.Authorization = 'Bearer ' + $cookies.getObject(cookie_key);
+            if (typeof $cookies.get(constants.cookie_key) !== 'undefined') {
+                config.headers.Authorization = 'Bearer ' + $cookies.get(constants.cookie_key);
             } else {
                 $location.path('/login');
             }
