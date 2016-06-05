@@ -4,7 +4,7 @@
 
         vm.register = function() {
             userManager.register(vm.user).then(function() {
-                $location.path("/home")
+                $location.path("/login")
             }, function(data) {
                 vm.errorMessage = data;
             });
