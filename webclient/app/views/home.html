@@ -1,0 +1,19 @@
+<form class="form-horizontal" role="form" name="addTipForm">
+    <div class="col-md-12">
+        <textarea class="form-control" rows="4" placeholder="Add a tip&trick...?" ng-model="vm.tipToAdd.text" required></textarea>
+    </div>
+    <div class="col-md-12" style="margin-top:15px">
+    </div>
+    <div class="col-md-9">
+        <select class="form-control" ng-model="vm.tipToAdd.category" required>
+            <option value="" selected disabled>Select a category:</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <button type="submit" ng-disabled="addTipForm.$invalid" class="btn btn-primary pull-right">Add Tip&Trick</button>
+    </div>
+</form>
