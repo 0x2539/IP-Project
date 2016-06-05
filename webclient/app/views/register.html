@@ -1,6 +1,11 @@
 <div class="col-md-3"></div>
 <form name="registerForm" class="col-md-6">
+
     <h2>Register</h2>
+
+    <div class="alert alert-danger" ng-show="vm.errorMessage">
+        {{vm.errorMessage}}
+    </div>
 
     <label for="firstName" class="sr-only">First Name</label>
     <input type="text" id="inputFirstName" class="form-control" ng-model="vm.user.first_name" placeholder="First name" required autofocus>

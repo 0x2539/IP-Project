@@ -12,7 +12,7 @@
                     templateUrl: 'app/views/register.html',
                     controller: 'registerController as vm'
                 })
-                .when('home', {
+                .when('/home', {
                     templateUrl: 'app/views/home.html',
                     controller: 'homeController as vm'
                 })

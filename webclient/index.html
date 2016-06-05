@@ -39,8 +39,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <div ng-if="vm.loggedIn">
-                        <div href="#">Salut, {{vm.userName}}</div>
-                        <div><a href="/login">Logout</a></div>
+                        <div href="#">Esti logat ca {{vm.userName}}</div>
+                        <div><a href="" ng-click='vm.logout()'>Logout</a></div>
                     </div>
                     <div ng-if="!vm.loggedIn">
                         <a href="#/login" type="button" class="btn btn-default navbar-btn pull-right">Sign in</a>
