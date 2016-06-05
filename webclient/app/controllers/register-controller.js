@@ -1,14 +1,18 @@
 (function() {
-    var registerController = function(userManager) {
+    var registerController = function(userManager, $location) {
         var vm = this;
 
         vm.register = function() {
-            userManager.register(vm.user);
+            userManager.register(vm.user).then(function() {
+                $location.path("/login")
+            }, function(data) {
+                vm.errorMessage = data;
+            });
         }
 
     }
 
     angular.module("mainApp")
-        .controller("registerController", ["userManager", registerController]);
+        .controller("registerController", ['userManager', '$location', registerController]);
 
 })();
