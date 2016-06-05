@@ -8,9 +8,10 @@
                 data: user,
                 unauthenticated: true
             }).then(function success(response) {
-                $cookies.put(constants.cookie_key, response.data.token)
+                alert(response.data.token);
+                $cookies.put(constants.cookie_key, response.data.token);
             }, function error(response) {
-                alert(response.data)
+                alert(response.data.error);
             });
         }
 
@@ -21,9 +22,9 @@
                 data: user,
                 unauthenticated: true
             }).then(function success(response) {
-                alert(response.data);
+                alert(JSON.stringify(response.data));
             }, function error(response) {
-                alert(response.data)
+                alert(response.data.error)
             });
         }
 
