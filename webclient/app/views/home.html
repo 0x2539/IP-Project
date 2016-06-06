@@ -22,3 +22,11 @@
         <button type="submit" ng-disabled="addTipForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.addTip()">Add Tip&Trick</button>
     </div>
 </form>
+
+<div id="tipsContainer" style="margin-top:10px" class="col-md-12">
+    <div ng-repeat="tip in vm.tips" style="margin-bottom:10px; box-shadow:0px 0px 5px 0px black; padding:10px; border-radius:3px; position:relative">
+        <div style="font-weight:bold">{{tip.title}}</div>
+        <div>{{tip.description}}</div>
+        <div style="color:gray; font-size:10px; right:0; top:0; position:aboslute;">{{vm.toHumanDate(tip.date_created)}}</div>
+    </div>
+</div>

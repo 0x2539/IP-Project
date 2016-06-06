@@ -15,8 +15,25 @@
             });
             return deferred.promise;
         }
+
+        var getAll = function() {
+            var deferred = $q.defer();
+
+            $http({
+                method: 'GET',
+                url: constants.baseUrl + "tip_and_trick",
+                unauthenticated: false,
+            }).then(function success(response) {
+                deferred.resolve(response.data);
+            }, function error(response) {
+                deferred.reject("Tips get failed " + response.data);
+            });
+            return deferred.promise;
+        }
+
         return {
-            add: add
+            add: add,
+            getAll:getAll
         };
     }
 
