@@ -87,9 +87,9 @@ def check_user_required(authorization_header, user_required):
 
     token_payload = token_data_response.get('token_data')
 
-    user_type = token_payload.get('user_type')
-    if user_type < user_required.value:
-        raise Exception('NOT_ENOUGH_PERMISSIONS %s:%s' % (user_type, user_required.value))
+    # user_type = token_payload.get('user_type')
+    # if user_type < user_required.value:
+    #     raise Exception('NOT_ENOUGH_PERMISSIONS %s:%s' % (user_type, user_required.value))
 
     return token_payload
 
