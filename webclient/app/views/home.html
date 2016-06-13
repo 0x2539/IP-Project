@@ -23,10 +23,19 @@
     </div>
 </form>
 
-<div id="tipsContainer" style="margin-top:10px" class="col-md-12">
-    <div ng-repeat="tip in vm.tips" style="margin-bottom:10px; box-shadow:0px 0px 5px 0px black; padding:10px; border-radius:3px; position:relative">
-        <div style="font-weight:bold">{{tip.title}}</div>
-        <div>{{tip.description}}</div>
-        <div style="color:gray; font-size:10px; right:0; top:0; position:aboslute;">{{vm.toHumanDate(tip.date_created)}}</div>
+
+<div id="tipsContainer" style="margin-top:50px" class="col-md-12">
+    <div ng-repeat="tip in vm.tips" style="margin-bottom:10px; box-shadow:0px 0.5px 2px 0px black; padding:10px; border-radius:3px; position:relative">
+        <div class="col-md-7">
+            <div style="font-weight:bold">{{tip.title}}</div>
+            <div>{{tip.description}}</div>
+            <div style="color:gray; font-size:10px; right:0; top:0; position:aboslute;">{{vm.toHumanDate(tip.date_created)}}</div>
+        </div>
+        <div class="col-md-5">
+            <div class="pull-right">
+                <input-stars class="col-md-12" ng-model="tip.rating" max="5" ng-click="vm.rate(tip)"></input-stars>
+                <div class="col-md-12">Average rating: {{vm.formatNumber(tip.average_rating)}}</div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
     </div>
-</div>

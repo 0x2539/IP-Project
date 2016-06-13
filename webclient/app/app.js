@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module("mainApp", ["ngRoute", "ngCookies"]);
+    var app = angular.module("mainApp", ["ngRoute", "ngCookies", "angular-input-stars"]);
 
     app.constant('constants', {
         baseUrl: 'http://127.0.0.1:8000/',
