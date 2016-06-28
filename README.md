@@ -14,7 +14,7 @@ virtualenv env
 ```
 pip install -r requirements.txt
 ```
-4) Create the DB:
+4) Create the DB (this will create it on disk):
 ```
 python api/manage.py migrate --run-syncdb
 ```
@@ -25,8 +25,9 @@ python api/manage.py runserver 0.0.0.0:8000
 __Usually it is enough to run step 2 and 5 (if you have your project setted up beforehand)__
 
 ### Updated the models?
-1. Delete db.sqlite3 and run:
+1. Delete __db.sqlite3__ (delete it from disk)
 2. Run the command:
+
   ```
   python api/manage.py migrate --run-syncdb
   ```
