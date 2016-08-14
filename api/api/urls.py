@@ -26,6 +26,7 @@ from api.src.views import (
     rating_apply_view,
     category_view,
     users_view,
+    html_example_view,
 )
 
 urlpatterns = [
@@ -46,4 +47,5 @@ urlpatterns = [
     url(r'^rating/user', rating_user_view.RatingUserView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^rating_apply/(?P<rating_id>\d+)', rating_apply_view.RatingApplyView.as_view()),  # [0-9]+$ '?' is for optional
     url(r'^rating_apply', rating_apply_view.RatingApplyView.as_view()),  # [0-9]+$ '?' is for optional
+    url(r'^html_example', html_example_view.HtmlExampleView.as_view()),  # [0-9]+$ '?' is for optional
 ]
